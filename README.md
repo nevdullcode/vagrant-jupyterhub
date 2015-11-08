@@ -19,9 +19,9 @@ to spawn single user servers in various ways:
 
 ## Required Software
 You must have the following installed:
-* [Git](http://git-scm.com/)
-* [VirtualBox](http://www.virtualbox.com)
-* [Vagrant](http://www.vagrantup.com)
+* [Git](https://git-scm.com/)
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com)
 
 ## Getting Started
 After you've installed the required software, open a terminal and execute the
@@ -29,7 +29,7 @@ following (this will take some time):
 
 ```
 sudo vagrant plugin install vagrant-vbguest
-git clone http://www.github.com/nevdullcode/vagrant-jupyterhub
+git clone https://www.github.com/nevdullcode/vagrant-jupyterhub
 cd vagrant-jupyterhub
 vagrant up
 vagrant reload
