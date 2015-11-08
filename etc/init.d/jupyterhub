@@ -1,0 +1,55 @@
+#!/bin/sh
+# chkconfig: 35 90 10
+# JupyterHub is a multi-user server that launches Jupyter notebook servers.
+#
+# Copyright (c) 2015 Jeff Denton
+# The LICENSE file is located in the top level directory.
+#
+
+workdir=/root
+
+if [[ $EUID -ne 0 ]]; then
+  echo "Must be run as root." 1>&2
+  exit 1
+fi
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source custom Python version
+. /etc/profile.d/python3.sh
+
+start() {
+    cd $workdir && \
+    daemon \
+      --pidfile /var/run/jupyterhub.pid \
+      "nohup jupyterhub --pid-file=/var/run/jupyterhub.pid >> /var/log/jupyterhub.log 2>&1 &"
+    echo "starting jupyterhub"
+    return 0
+}
+
+stop() {
+      killproc jupyterhub
+      echo "stopping jupyterhub"
+      return 0
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    status jupyterhub
+    ;;
+  restart)
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/jupyterhub {start|stop|status|restart}"
+    exit 1
+esac
+exit 0
