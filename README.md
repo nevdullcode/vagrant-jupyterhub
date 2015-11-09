@@ -76,7 +76,7 @@ Configure your newly generated Vagrantfile for your requirements and then start 
 vagrant up
 ```
 
-Visit the following [webpage] (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one#initialize-your-new-vagrant-box) for more info about this approach.
+Visit the following [webpage] (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one) for more info about this approach.
 
 ## What I'm using this for...
 I'm using this as a test environment to understand how to install, configure, and maintain JupyterHub on Centos 6.6.
