@@ -23,7 +23,9 @@ start() {
     cd $workdir && \
     daemon \
       --pidfile /var/run/jupyterhub.pid \
-      "nohup jupyterhub --pid-file=/var/run/jupyterhub.pid >> /var/log/jupyterhub.log 2>&1 &"
+      "nohup jupyterhub --pid-file=/var/run/jupyterhub.pid \
+                        -f /etc/jupyterhub/jupyterhub_config.py \
+                        >> /var/log/jupyterhub.log 2>&1 &"
     echo "starting jupyterhub"
     return 0
 }

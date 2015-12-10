@@ -31,11 +31,11 @@ following (this will take some time):
 sudo vagrant plugin install vagrant-vbguest
 git clone https://www.github.com/nevdullcode/vagrant-jupyterhub
 cd vagrant-jupyterhub
+./setup-base.sh
 vagrant up
-vagrant reload
 ```
 
-If everything installed successfully, then you may [visit your JupyterHub!](http://localhost:8000/)
+If everything installed successfully, then you may [visit your JupyterHub!](http://192.168.33.10:8000/)
 
 ## Usernames and Passwords
 **You will want to use the vagrant user account when logging into the JupyterHub WebUI:**
@@ -44,39 +44,10 @@ If everything installed successfully, then you may [visit your JupyterHub!](http
 * password: vagrant
 
 **For administration:**
+### Note that PAM denies access when logging into JupyterHub as root
 
 * username: root
-* password: puppet
-
-## Repackage the VM into a New Vagrant Box (optional)
-To prevent having to build the box over and over again when you simply want a fresh JupyterHub VM based on the one created above:
-
-```
-vagrant package --output mynew.box
-```
-
-The previous command creates a new box file in your CWD. This file can be stored wherever you prefer.
-
-This is how you add the new box file to your Vagrant setup:
-
-```
-vagrant box add mynewbox mynew.box
-```
-
-The following is an example of how you may decide to base your new project off of the vagrant-jupyterhub built box:
-
-```
-mkdir new_project && cd new_project
-vagrant init mynewbox
-```
-
-Configure your newly generated Vagrantfile for your requirements and then start the VM:
-
-```
-vagrant up
-```
-
-Visit the following [webpage] (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one#initialize-your-new-vagrant-box) for more info about this approach.
+* password: root
 
 ## What I'm using this for...
 I'm using this as a test environment to understand how to install, configure, and maintain JupyterHub on Centos 6.6.
