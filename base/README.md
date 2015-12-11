@@ -1,5 +1,5 @@
 # Sets up a base image with updated packages, Python 3, and Jupyter+JupyterHub
-# Note this base image will not have JupyterHub configured and running, only
+## Note this base image will not have JupyterHub configured and running, only
 # installed.
 ```
 vagrant up && \
